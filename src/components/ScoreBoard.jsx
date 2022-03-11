@@ -1,0 +1,39 @@
+import React from "react";
+import styled from "styled-components";
+
+const ScoreboardContainer = styled.div`
+  width: 125px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+`;
+
+const ScoreLabel = styled.p`
+  margin: 0;
+  letter-spacing: 0.1em;
+  color: hsl(229, 25%, 31%);
+  font-weight: 700;
+  margin-bottom: -0.8em;
+`;
+
+const ScoreNumber = styled.p`
+  margin: 0;
+  color: hsl(229, 64%, 46%);
+  font-weight: 700;
+  font-size: 3em;
+`;
+
+function Scoreboard() {
+  return (
+    <ScoreboardContainer>
+      <ScoreLabel>SCORE</ScoreLabel>
+      <ScoreNumber>13</ScoreNumber>
+    </ScoreboardContainer>
+  );
+}
+
+export default Scoreboard;
