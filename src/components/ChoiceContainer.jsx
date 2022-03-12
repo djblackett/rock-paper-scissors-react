@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Paper from "./Paper";
 import Rock from "./Rock";
 import Scissors from "./Scissors";
+import { RulesContext } from "../App";
 
 const Container = styled.div`
   margin-top: 3em;
@@ -18,6 +19,7 @@ const Container = styled.div`
 `;
 
 function ChoiceContainer() {
+  const { toggleIsChoiceMade } = useContext(RulesContext);
   return (
     <Container>
       <Paper location={"1 / 1 / 2 / 2"} />

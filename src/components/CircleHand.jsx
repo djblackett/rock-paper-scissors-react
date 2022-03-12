@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { RulesContext } from "../App";
 
 const OuterCircle = styled.div`
   height: 150px;
@@ -21,7 +22,7 @@ const InnerCircle = styled.div`
   border-radius: 50%;
   background-color: lightgrey;
   z-index: 10;
-`
+`;
 const Center = styled.div`
   height: 100%;
   width: 100%;
@@ -32,7 +33,7 @@ const Center = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const BackgroundCircle = styled.div`
   height: 150px;
@@ -44,16 +45,28 @@ const BackgroundCircle = styled.div`
   /* margin: 2em;
   margin-left: 2em;
   margin-right: 2em; */
-`
-
+`;
 
 function CircleHand(props) {
+  const { toggleIsChoiceMade } = useContext(RulesContext);
+
+  const handleClick = () => {
+    toggleIsChoiceMade();
+    props.action();
+
+    //todo trigger house choice and see who is winner
+  };
   return (
-    <BackgroundCircle style={{gridArea: props.location ? props.location : 'auto'}}>
-    <OuterCircle style={{background: props.color}}>
-    
-      <InnerCircle><Center><img alt="icon" src={props.icon} /></Center></InnerCircle>
-    </OuterCircle>
+    <BackgroundCircle
+      style={{ gridArea: props.location ? props.location : "auto" }}
+    >
+      <OuterCircle style={{ background: props.color }} onClick={handleClick}>
+        <InnerCircle>
+          <Center>
+            <img alt="icon" src={props.icon} />
+          </Center>
+        </InnerCircle>
+      </OuterCircle>
     </BackgroundCircle>
   );
 }

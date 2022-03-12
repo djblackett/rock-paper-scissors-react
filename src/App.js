@@ -7,6 +7,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import ChoiceContainer from "./components/ChoiceContainer";
 import YouPickedComponent from "./components/YouPickedComponent";
+import Winner from "./components/Winner";
 
 export const RulesContext = React.createContext(true);
 
@@ -34,15 +35,15 @@ const RulesButton = styled.button`
 `;
 
 function App() {
-  const { isVisible, toggleFunction } = useContext(RulesContext);
+  const { isVisible, toggleFunction, isChoiceMade, toggleChoiceMade } =
+    useContext(RulesContext);
   // console.log(isVisible);
-
   //conditionals for determining which gets rendered
 
   return (
     <div className="App">
       <Header className="App-header"></Header>
-      <ChoiceContainer />
+      {!isChoiceMade && <ChoiceContainer />}
       <Overlay style={{ visibility: isVisible ? "visible" : "hidden" }} />
       <Rules />
 
@@ -51,7 +52,12 @@ function App() {
         Score Rules You Picked The House Picked You Win You Lose Play Again
       </p>
       <RulesButton onClick={toggleFunction}>RULES</RulesButton>
-      <YouPickedComponent />
+      {isChoiceMade && (
+        <>
+          <YouPickedComponent />
+          <Winner />
+        </>
+      )}
     </div>
   );
 }
