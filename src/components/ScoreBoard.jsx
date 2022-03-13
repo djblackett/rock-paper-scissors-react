@@ -1,5 +1,6 @@
-import React from "react";
 import styled from "styled-components";
+import React, { useContext } from "react";
+import { RulesContext } from "../App";
 
 const ScoreboardContainer = styled.div`
   width: 125px;
@@ -28,10 +29,11 @@ const ScoreNumber = styled.p`
 `;
 
 function Scoreboard() {
+  const { score } = useContext(RulesContext);
   return (
     <ScoreboardContainer>
       <ScoreLabel>SCORE</ScoreLabel>
-      <ScoreNumber>13</ScoreNumber>
+      <ScoreNumber>{score}</ScoreNumber>
     </ScoreboardContainer>
   );
 }

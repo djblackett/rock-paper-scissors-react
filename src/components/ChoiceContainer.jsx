@@ -4,8 +4,9 @@ import Paper from "./Paper";
 import Rock from "./Rock";
 import Scissors from "./Scissors";
 import { RulesContext } from "../App";
+import { animated, useSpring } from "react-spring";
 
-const Container = styled.div`
+const Container = styled(animated.div)`
   margin-top: 3em;
   max-width: 500px;
   max-height: 500px;
@@ -16,12 +17,14 @@ const Container = styled.div`
   background-position: center;
   align-items: center;
   justify-items: center;
+  transition: all 0.3s ease-in;
 `;
 
 function ChoiceContainer() {
-  const { toggleIsChoiceMade } = useContext(RulesContext);
+  const { fadeIn } = useContext(RulesContext);
+  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
   return (
-    <Container>
+    <Container style={props}>
       <Paper location={"1 / 1 / 2 / 2"} />
       <Scissors location={"1 / 3 / 2 / 4"} />
       <Rock location={"3 / 2 / 4 / 3 "} />

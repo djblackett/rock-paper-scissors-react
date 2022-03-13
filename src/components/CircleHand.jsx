@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
+import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import { RulesContext } from "../App";
 
 const OuterCircle = styled.div`
   height: 150px;
   width: 150px;
+  max-width: 225px;
+  max-height: 225px;
   border-radius: 50%;
   /* background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%)); */
   display: flex;
@@ -35,30 +38,38 @@ const Center = styled.div`
   align-items: center;
 `;
 
-const BackgroundCircle = styled.div`
+const BackgroundCircle = styled(animated.div)`
   height: 150px;
   width: 150px;
+  max-width: 225px;
+  max-height: 225px;
   background-color: rgba(7, 90, 213, 0.3);
   border-radius: 50%;
   top: 5px;
   z-index: 1;
+  transition: all 0.3s ease-in;
   /* margin: 2em;
   margin-left: 2em;
   margin-right: 2em; */
 `;
 
 function CircleHand(props) {
-  const { toggleIsChoiceMade } = useContext(RulesContext);
-
+  const { toggleIsChoiceMade, isChoiceMade } = useContext(RulesContext);
+  const springProps = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
   const handleClick = () => {
-    toggleIsChoiceMade();
-    props.action();
-
-    //todo trigger house choice and see who is winner
+    if (!isChoiceMade) {
+      toggleIsChoiceMade();
+      props.action();
+    }
   };
+
   return (
     <BackgroundCircle
-      style={{ gridArea: props.location ? props.location : "auto" }}
+      style={{
+        ...springProps,
+        ...props.scale,
+        gridArea: props.location ? props.location : "auto",
+      }}
     >
       <OuterCircle style={{ background: props.color }} onClick={handleClick}>
         <InnerCircle>

@@ -31,3 +31,8 @@ The designs were created to the following widths:
 
 - Family: [Barlow Semi Condensed](https://fonts.google.com/specimen/Barlow+Semi+Condensed)
 - Weights: 600, 700
+
+rgba(31, 55, 86)
+rgb(20, 21, 57)
+
+radial-gradient(rgba(31, 55, 86), rgba(20, 21, 57))

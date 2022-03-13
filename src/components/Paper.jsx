@@ -12,6 +12,7 @@ function Paper(props) {
       color={"linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%))"}
       location={props.location}
       action={choosePaper}
+      scale={props.style}
     />
   );
 }

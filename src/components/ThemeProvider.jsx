@@ -27,12 +27,36 @@ export const ThemeProvider = ({ children }) => {
     setPlayerChoice("scissors");
   };
 
+  const resetPlayerChoice = () => {
+    setPlayerChoice(null);
+  };
+
   const [score, setScore] = useState(0);
   const incrementScore = () => {
     setScore(score + 1);
   };
   const clearScore = () => {
     setScore(0);
+  };
+
+  const [houseChoice, setHouseChoice] = useState(null);
+
+  const houseChoose = (choice) => {
+    setHouseChoice(choice);
+  };
+
+  const resetHouseChoice = () => {
+    setHouseChoice(null);
+  };
+
+  const [winner, setWinner] = useState(null);
+  const resetWinner = () => {
+    setWinner(null);
+  };
+
+  const [fadeIn, setFadeIn] = useState(false);
+  const toggleFadeIn = () => {
+    setFadeIn(!fadeIn);
   };
 
   return (
@@ -49,6 +73,15 @@ export const ThemeProvider = ({ children }) => {
         score,
         incrementScore,
         clearScore,
+        houseChoice,
+        houseChoose,
+        resetHouseChoice,
+        resetPlayerChoice,
+        fadeIn,
+        toggleFadeIn,
+        winner,
+        setWinner,
+        resetWinner,
       }}
     >
       {children}

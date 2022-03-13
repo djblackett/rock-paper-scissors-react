@@ -12,6 +12,7 @@ function Scissors(props) {
       color={"linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%))"}
       location={props.location}
       action={chooseScissors}
+      scale={props.style}
     />
   );
 }

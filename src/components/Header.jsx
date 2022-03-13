@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Scoreboard from "./ScoreBoard";
+import { RulesContext } from "../App";
 
 const HeaderContainer = styled.div`
   margin-top: 3em;
@@ -15,6 +16,7 @@ const HeaderContainer = styled.div`
   border: 3px solid hsl(217, 16%, 45%);
   padding: 1em;
   border-radius: 10px;
+  transition: all 0.5s ease-in;
 `;
 
 const Title = styled.h1`
@@ -26,12 +28,13 @@ const Title = styled.h1`
 `;
 
 function Header() {
+  const { fadeIn } = useContext(RulesContext);
   return (
-    <HeaderContainer>
+    <HeaderContainer style={{ opacity: fadeIn ? 1 : 0 }}>
       <Title>
         <img src="images/logo.svg" alt="logo" height="80px" />
       </Title>
-      <Scoreboard></Scoreboard>
+      <Scoreboard />
     </HeaderContainer>
   );
 }

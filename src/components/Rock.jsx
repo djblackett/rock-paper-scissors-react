@@ -6,7 +6,7 @@ import { RulesContext } from "../App";
 function Rock(props) {
   // const [state, setState] = useState()
 
-  const { chooseRock } = useContext(RulesContext);
+  const { chooseRock, style } = useContext(RulesContext);
 
   return (
     <CircleHand
@@ -14,6 +14,7 @@ function Rock(props) {
       color={"linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%))"}
       location={props.location}
       action={chooseRock}
+      scale={props.style}
     />
   );
 }

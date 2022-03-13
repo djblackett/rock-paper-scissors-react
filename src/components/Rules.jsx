@@ -19,6 +19,7 @@ const RulesContainer = styled.section`
   justify-content: space-between;
   align-items: center;
   z-index: 5;
+  transition: all 0.5s ease-out;
 `;
 
 const Header = styled.div`
@@ -205,7 +206,10 @@ function Rules() {
 
   return (
     <RulesContainer
-      style={{ visibility: rules.isVisible ? "visible" : "hidden" }}
+      style={{
+        visibility: rules.isVisible ? "visible" : "hidden",
+        opacity: rules.isVisible ? 1 : 0,
+      }}
     >
       <Header>
         <Title>RULES</Title>
