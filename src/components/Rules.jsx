@@ -1,41 +1,79 @@
 import React from "react";
 import styled from "styled-components";
-import { useState, useEffect, useContext } from "react";
-import { RulesContext } from "../App";
+import { useContext } from "react";
+import { AppContext } from "../App";
+
+
+// I recommend keeping the SVG definitions folded  
 
 const RulesContainer = styled.section`
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 330px;
-  height: 330px;
+  height: 100%;
+  width: 100%;
   background-color: white;
   border-radius: 10px;
   padding: 1.5em 2em 2em 1.5em;
   padding-top: 2em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
+  display: grid;
+  grid-template: 20% 60% 20% / 1fr 1fr 1fr;
+
+  justify-content: center;
   align-items: center;
+  align-content: center;
+  justify-items: center;
   z-index: 5;
   transition: all 0.5s ease-out;
-`;
+  text-align: center;
 
-const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
+  @media (min-width: 1300px) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 330px;
+    height: 330px;
+    justify-content: space-between;
+    text-align: left;
+  }
 `;
 
 const Title = styled.h1`
   color: black;
   width: 100%;
-  text-align: left;
-  margin-top: -0.38em;
+  text-align: center;
   color: hsl(229, 25%, 31%);
+  grid-area: 1 / 2 / 2 / 3;
+
+  @media (min-width: 1300px) {
+    grid-area: 1 / 1 / 2 / 2;
+    text-align: left;
+  }
+`;
+
+
+const CloseButtonWrapper = styled.div`
+  height: 3em;
+  width: 3em;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 2em;
+  grid-area: 3 / 2 / 4 / 3;
+
+  @media (min-width: 1300px) {
+    position: initial;
+    bottom: initial;
+    grid-area: 1 / 3 / 2 / 4;
+  }
+`;
+
+const RulesSVGWrapper = styled.div`
+  grid-area: 2 / 1 / 3 / 4;
+
+  @media (min-width: 1300px) {
+  }
 `;
 
 const RulesSVG = (
@@ -195,14 +233,8 @@ const CloseIcon = (
   </svg>
 );
 
-const SVGWrapper = styled.div`
-  height: 3em;
-  width: 3em;
-  z-index: 2;
-`;
-
 function Rules() {
-  const rules = useContext(RulesContext);
+  const rules = useContext(AppContext);
 
   return (
     <RulesContainer
@@ -211,11 +243,12 @@ function Rules() {
         opacity: rules.isVisible ? 1 : 0,
       }}
     >
-      <Header>
-        <Title>RULES</Title>
-        <SVGWrapper onClick={rules.toggleFunction}>{CloseIcon}</SVGWrapper>
-      </Header>
-      {RulesSVG}
+      
+      <Title>RULES</Title>
+      <CloseButtonWrapper onClick={rules.toggleFunction}>
+        {CloseIcon}
+      </CloseButtonWrapper>
+      <RulesSVGWrapper>{RulesSVG}</RulesSVGWrapper>
     </RulesContainer>
   );
 }

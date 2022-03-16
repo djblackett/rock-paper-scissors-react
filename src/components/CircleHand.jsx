@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
-import { RulesContext } from "../App";
+import { AppContext } from "../App";
 
 const OuterCircle = styled.div`
   height: 150px;
@@ -9,13 +9,11 @@ const OuterCircle = styled.div`
   max-width: 225px;
   max-height: 225px;
   border-radius: 50%;
-  /* background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%)); */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* box-shadow: 0 3px 4px ; */
   position: relative;
-  z-index: 5;
+  /* z-index: 5; */
   transform: translateY(-5px);
 `;
 
@@ -24,7 +22,7 @@ const InnerCircle = styled.div`
   width: 80%;
   border-radius: 50%;
   background-color: lightgrey;
-  z-index: 10;
+  /* z-index: 10; */
 `;
 const Center = styled.div`
   height: 100%;
@@ -32,7 +30,7 @@ const Center = styled.div`
   background-color: white;
   border-radius: 50%;
   transform: translate(0, 5px);
-  z-index: 15;
+  /* z-index: 15; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,15 +44,18 @@ const BackgroundCircle = styled(animated.div)`
   background-color: rgba(7, 90, 213, 0.3);
   border-radius: 50%;
   top: 5px;
-  z-index: 1;
+  /* z-index: 3; */
   transition: all 0.3s ease-in;
-  /* margin: 2em;
-  margin-left: 2em;
-  margin-right: 2em; */
+
+  @media (min-width: 1300px) {
+    /* margin-left: 2em;
+    margin-right: 2em; */
+  }
 `;
 
+// Generic component. Rock, Paper, and Scissors components each wrap this component.
 function CircleHand(props) {
-  const { toggleIsChoiceMade, isChoiceMade } = useContext(RulesContext);
+  const { toggleIsChoiceMade, isChoiceMade } = useContext(AppContext);
   const springProps = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
   const handleClick = () => {
     if (!isChoiceMade) {
@@ -73,9 +74,7 @@ function CircleHand(props) {
     >
       <OuterCircle style={{ background: props.color }} onClick={handleClick}>
         <InnerCircle>
-          <Center>
-            <img alt="icon" src={props.icon} />
-          </Center>
+          <Center>{props.icon}</Center>
         </InnerCircle>
       </OuterCircle>
     </BackgroundCircle>

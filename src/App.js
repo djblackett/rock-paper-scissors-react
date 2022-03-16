@@ -1,13 +1,14 @@
 import "./App.css";
 import Header from "./components/Header";
 import Rules from "./components/Rules";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 import ChoiceContainer from "./components/ChoiceContainer";
-import YouPickedComponent from "./components/YouPickedComponent";
+import GameResults from "./components/GameResults";
 import Delayed from "./components/Delayed";
+import Attribution from './components/Attribution';
 
-export const RulesContext = React.createContext(true);
+export const AppContext = React.createContext(true);
 
 const Overlay = styled.div`
   position: absolute;
@@ -21,9 +22,9 @@ const Overlay = styled.div`
 `;
 
 const RulesButton = styled.button`
-  align-self: flex-end;
+  align-self: center;
   margin-bottom: 3em;
-  margin-right: 3em;
+
   padding: 0.3em 1.9em;
   background-color: transparent;
   border: 2px solid white;
@@ -32,42 +33,29 @@ const RulesButton = styled.button`
   letter-spacing: 0.1em;
   text-align: center;
   transition: all 0.5s ease-in;
-  justify-self: flex-end;
+  justify-self: center;
+
+  @media (min-width: 1300px) {
+    align-self: flex-end;
+    justify-self: end;
+    margin-right: 3em;
+    margin-bottom: 1em;
+  }
 `;
+
+// Uses isChoiceMade to switch between the 2 scenes of the game. When false, the ChoiceContainer is rendered so the player can make a choice.
+// When a hand is selected, it switches to true, causing the GameResults to be rendered instead.
 
 function App() {
   const {
     isVisible,
     toggleFunction,
     isChoiceMade,
-    playerChoice,
-    houseChoice,
     fadeIn,
     toggleFadeIn,
     winner,
-    setWinner,
     resetWinner,
-  } = useContext(RulesContext);
-
-  useEffect(() => {
-    if (playerChoice && houseChoice) {
-      if (playerChoice === houseChoice) {
-        setWinner("draw");
-      } else if (playerChoice === "rock" && houseChoice === "paper") {
-        setWinner("house");
-      } else if (playerChoice === "rock" && houseChoice === "scissors") {
-        setWinner("player");
-      } else if (playerChoice === "scissors" && houseChoice === "rock") {
-        setWinner("house");
-      } else if (playerChoice === "scissors" && houseChoice === "paper") {
-        setWinner("player");
-      } else if (playerChoice === "paper" && houseChoice === "rock") {
-        setWinner("player");
-      } else if (playerChoice === "paper" && houseChoice === "scissors") {
-        setWinner("house");
-      }
-    }
-  }, [playerChoice, houseChoice, winner]);
+  } = useContext(AppContext);
 
   useEffect(() => {
     toggleFadeIn();
@@ -75,30 +63,23 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // read to localStorage
+    // read/save to localStorage
   });
 
   return (
     <div className="App" style={{ opacity: fadeIn ? 1 : 0 }}>
+
+
+      {/* Game logo and scorebox  */}
       <Header
         className="App-header"
         style={{ opacity: fadeIn ? 1 : 0 }}
       ></Header>
+
+      {/* Player makes a choice here */}
       {!isChoiceMade && (
         <Delayed>
           <ChoiceContainer />
-        </Delayed>
-      )}
-      <Overlay
-        style={{
-          visibility: isVisible ? "visible" : "hidden",
-          opacity: isVisible ? 1 : 0,
-        }}
-      />
-      <Rules />
-
-      {!isChoiceMade && (
-        <Delayed>
           <RulesButton
             onClick={toggleFunction}
             style={{ opacity: fadeIn ? 1 : 0 }}
@@ -107,12 +88,26 @@ function App() {
           </RulesButton>
         </Delayed>
       )}
+
+      {/* This is a modal box and overlay for the rules of the game.  */}
+      <Overlay
+        style={{
+          visibility: isVisible ? "visible" : "hidden",
+          opacity: isVisible ? 1 : 0,
+        }}
+      />
+      <Rules />
+
+      {/* The results are displayed here. The Winner componenet is rendered from within GameResults */}
       {isChoiceMade && (
         <>
-          <YouPickedComponent winner={winner} resetWinner={resetWinner} />
+          <GameResults winner={winner} resetWinner={resetWinner} />
         </>
       )}
-    </div>
+
+      {/* Standard attribution for Front End Mentor projects */}
+       
+      </div>
   );
 }
 

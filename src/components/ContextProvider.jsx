@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { RulesContext } from "../App";
+import { AppContext } from "../App";
 
-export const ThemeProvider = ({ children }) => {
+// Global state and setter/toggle functions
+// Intentionally used Context API just to learn it. Undecided if Redux would have been a better choice.
+
+export const ContextProvider = ({ children }) => {
   const [isVisible, setIsVisible] = React.useState(false);
   const toggleFunction = () => {
     setIsVisible(!isVisible);
@@ -59,8 +62,28 @@ export const ThemeProvider = ({ children }) => {
     setFadeIn(!fadeIn);
   };
 
+  useEffect(() => {
+    if (playerChoice && houseChoice) {
+      if (playerChoice === houseChoice) {
+        setWinner("draw");
+      } else if (playerChoice === "rock" && houseChoice === "paper") {
+        setWinner("house");
+      } else if (playerChoice === "rock" && houseChoice === "scissors") {
+        setWinner("player");
+      } else if (playerChoice === "scissors" && houseChoice === "rock") {
+        setWinner("house");
+      } else if (playerChoice === "scissors" && houseChoice === "paper") {
+        setWinner("player");
+      } else if (playerChoice === "paper" && houseChoice === "rock") {
+        setWinner("player");
+      } else if (playerChoice === "paper" && houseChoice === "scissors") {
+        setWinner("house");
+      }
+    }
+  }, [playerChoice, houseChoice, winner, setWinner]);
+
   return (
-    <RulesContext.Provider
+    <AppContext.Provider
       value={{
         isVisible,
         toggleFunction,
@@ -85,6 +108,6 @@ export const ThemeProvider = ({ children }) => {
       }}
     >
       {children}
-    </RulesContext.Provider>
+    </AppContext.Provider>
   );
 };

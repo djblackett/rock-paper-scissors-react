@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React, { useContext } from "react";
-import { RulesContext } from "../App";
+import { AppContext } from "../App";
 
 const ScoreboardContainer = styled.div`
   width: 125px;
@@ -11,6 +11,11 @@ const ScoreboardContainer = styled.div`
   align-items: center;
   background-color: white;
   border-radius: 10px;
+  transform: scale(0.7);
+
+  @media (min-width: 1300px) {
+    transform: scale(1);
+  }
 `;
 
 const ScoreLabel = styled.p`
@@ -29,7 +34,7 @@ const ScoreNumber = styled.p`
 `;
 
 function Scoreboard() {
-  const { score } = useContext(RulesContext);
+  const { score } = useContext(AppContext);
   return (
     <ScoreboardContainer>
       <ScoreLabel>SCORE</ScoreLabel>

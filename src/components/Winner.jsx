@@ -1,19 +1,31 @@
 import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
-import { RulesContext } from "../App";
+import { AppContext } from "../App";
 import { animated, useSpring } from "react-spring";
 
 const WinnerContainer = styled(animated.div)`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   align-self: flex-end;
+  justify-self: center;
   justify-content: center;
   margin: 0 1.5em;
   height: 150px;
   transition: all 0.5s ease-in;
   min-width: 20ch;
-  z-index: 1;
+  max-width: 40%;
+  z-index: 15;
+  order: 3;
+  grid-area: 2 / 1 / 3 / 3;
+  transform: scale(2.5);
+
+  @media (min-width: 1300px) {
+    order: initial;
+    transform: scale(1);
+    margin-bottom: 5em;
+  }
 `;
 
 const WinnerTitle = styled.h1`
@@ -47,7 +59,7 @@ function Winner(props) {
     resetPlayerChoice,
     resetHouseChoice,
     isChoiceMade,
-  } = useContext(RulesContext);
+  } = useContext(AppContext);
 
   const handleClick = () => {
     toggleIsChoiceMade();
