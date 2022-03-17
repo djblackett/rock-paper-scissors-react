@@ -158,7 +158,6 @@ function GameResults() {
             style={{
               opacity: winner === "house" ? 1 : 0,
               display: winner === "house" ? "initial" : "none",
-              zIndex: -50,
             }}
           />
         </Delayed>

@@ -3,8 +3,10 @@ import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import { AppContext } from "../App";
 
-const OuterCircle = styled.div`
+const OuterCircle = styled.button`
   height: 150px;
+  /* outline: none; */
+  border: none;
   width: 150px;
   max-width: 225px;
   max-height: 225px;
@@ -15,6 +17,7 @@ const OuterCircle = styled.div`
   position: relative;
   /* z-index: 5; */
   transform: translateY(-5px);
+  cursor: pointer;
 `;
 
 const InnerCircle = styled.div`

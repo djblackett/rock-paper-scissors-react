@@ -51,15 +51,16 @@ const Title = styled.h1`
 `;
 
 
-const CloseButtonWrapper = styled.div`
+const CloseButtonWrapper = styled.button`
   height: 3em;
   width: 3em;
   z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: start;
   position: absolute;
-  bottom: 2em;
+  /* bottom: 2em; */
   grid-area: 3 / 2 / 4 / 3;
 
   @media (min-width: 1300px) {

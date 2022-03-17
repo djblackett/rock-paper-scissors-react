@@ -24,7 +24,7 @@ const Overlay = styled.div`
 const RulesButton = styled.button`
   align-self: center;
   margin-bottom: 3em;
-
+  cursor: pointer;
   padding: 0.3em 1.9em;
   background-color: transparent;
   border: 2px solid white;
