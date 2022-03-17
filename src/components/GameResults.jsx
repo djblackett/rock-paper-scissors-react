@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import Winner from "./Winner";
 import { AppContext } from "../App";
-import Delayed from "./Delayed";
+
 import { useSpring, animated } from "react-spring";
 import Player from "./Player";
 import House from "./House";
@@ -14,7 +14,7 @@ const GameResultsContainer = styled(animated.div)`
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  transition: all 0.3s ease-in;
+  /* transition: all 0.3s ease-in; */
   transform: scale(0.6);
   align-self: flex-start;
   justify-self: center;
@@ -66,7 +66,7 @@ const WinnerGradient = styled(animated.div)`
   width: 500px;
   border-radius: 50%;
   position: absolute;
-  transition: all 0.5s ease-in;
+  /* transition: all 0.5s ease-in; */
   z-index: -50 !important;
   grid-area: 1 / 1 / 2 / 2;
 
@@ -123,29 +123,26 @@ function GameResults() {
 
   return (
     <GameResultsContainer style={props}>
-      <PlayerWrapper>
+      <PlayerWrapper style={{ zIndex: winner === "player" ? -10 : 0 }}>
         <Text>YOU PICKED</Text>
 
-        <Delayed waitBeforeShow={4200}>
-          <WinnerGradient
-            style={{
-              opacity: winner === "player" ? 1 : 0,
-              display: winner === "player" ? "initial" : "none",
-            }}
-          />
-        </Delayed>
+        <WinnerGradient
+          style={{
+            // opacity: winner === "player" ? 1 : 0,
+            display: winner === "player" ? "initial" : "none",
+          }}
+        />
+
         <Player />
       </PlayerWrapper>
 
-      <Delayed waitBeforeShow={4000}>
-        <Winner
-          winner={winner}
-          winnerChosen={winner !== null}
-          resetWinner={resetWinner}
-        />
-      </Delayed>
+      <Winner
+        winner={winner}
+        winnerChosen={winner !== null}
+        resetWinner={resetWinner}
+      />
 
-      <PlayerWrapper>
+      <PlayerWrapper style={{ zIndex: winner === "house" ? -10 : 0 }}>
         <Text>THE HOUSE PICKED</Text>
         <HousePlaceholderTransparentWrapper>
           <HousePlaceholder />
@@ -153,14 +150,14 @@ function GameResults() {
 
         {/* This is the problem area - WinnerGradient renders properly when the player wins, but not when the house wins.
         It seems to ignore its z-index of -50 */}
-        <Delayed waitBeforeShow={4200}>
-          <WinnerGradient
-            style={{
-              opacity: winner === "house" ? 1 : 0,
-              display: winner === "house" ? "initial" : "none",
-            }}
-          />
-        </Delayed>
+
+        <WinnerGradient
+          style={{
+            // opacity: winner === "house" ? 1 : 0,
+            display: winner === "house" ? "initial" : "none",
+          }}
+        />
+
         <House />
       </PlayerWrapper>
     </GameResultsContainer>

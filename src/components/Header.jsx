@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
 import styled from "styled-components";
 import Scoreboard from "./ScoreBoard";
-import { AppContext } from "../App";
 
 const HeaderContainer = styled.div`
   box-sizing: border-box;
   margin-top: 3em;
   /* margin-bottom: 1em; */
   height: 90px;
-  width: 80%;
+  width: 75%;
   max-width: 325px;
   display: flex;
   flex-direction: row;
@@ -18,7 +16,7 @@ const HeaderContainer = styled.div`
   border: 3px solid hsl(217, 16%, 45%);
   padding: 1em;
   border-radius: 10px;
-  transition: all 0.5s ease-in;
+  /* transition: all 0.5s ease-in; */
 
   @media (min-width: 1300px) {
     width: 50%;
@@ -79,9 +77,8 @@ const logo = (
 );
 
 function Header() {
-  const { fadeIn } = useContext(AppContext);
   return (
-    <HeaderContainer style={{ opacity: fadeIn ? 1 : 0 }}>
+    <HeaderContainer>
       <Title>{logo}</Title>
       <Scoreboard />
     </HeaderContainer>

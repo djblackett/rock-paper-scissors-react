@@ -4,10 +4,11 @@ import styled from "styled-components";
 import { AppContext } from "../App";
 
 const OuterCircle = styled.button`
-  height: 150px;
+  height: 20ch;
+  width: 20ch;
   /* outline: none; */
   border: none;
-  width: 150px;
+
   max-width: 225px;
   max-height: 225px;
   border-radius: 50%;
@@ -40,15 +41,15 @@ const Center = styled.div`
 `;
 
 const BackgroundCircle = styled(animated.div)`
-  height: 150px;
-  width: 150px;
+  /* height: 150px; */
+  /* width: 150px; */
   max-width: 225px;
   max-height: 225px;
   background-color: rgba(7, 90, 213, 0.3);
   border-radius: 50%;
   top: 5px;
   /* z-index: 3; */
-  transition: all 0.3s ease-in;
+  /* transition: all 0.3s ease-in; */
 
   @media (min-width: 1300px) {
     /* margin-left: 2em;
@@ -59,7 +60,7 @@ const BackgroundCircle = styled(animated.div)`
 // Generic component. Rock, Paper, and Scissors components each wrap this component.
 function CircleHand(props) {
   const { toggleIsChoiceMade, isChoiceMade } = useContext(AppContext);
-  const springProps = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
+  // const springProps = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
   const handleClick = () => {
     if (!isChoiceMade) {
       toggleIsChoiceMade();
@@ -70,7 +71,7 @@ function CircleHand(props) {
   return (
     <BackgroundCircle
       style={{
-        ...springProps,
+        // ...springProps,
         ...props.scale,
         gridArea: props.location ? props.location : "auto",
       }}

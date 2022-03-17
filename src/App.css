@@ -8,6 +8,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Barlow Semi Condensed", sans-serif;
+  /* overflow-x: hidden; */
 }
 
 body {
@@ -41,14 +42,14 @@ body {
   outline: none;
   display: grid;
 
-  grid-template: 20% 70% 10% / 1fr;
+  grid-template: 20% 60% 10% / 1fr;
   justify-items: center;
   align-items: flex-start;
   text-align: center;
   justify-content: center;
   align-content: flex-start;
   z-index: 0;
-  transition: all 0.3s ease-in;
+  /* transition: all 0.3s ease-in; */
 
   @media (min-width: 1300px) {
     grid-template: 30% 70% / 1fr;

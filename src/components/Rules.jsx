@@ -27,11 +27,12 @@ const RulesContainer = styled.section`
   text-align: center;
 
   @media (min-width: 1300px) {
+    grid-template: 20% 80% / 1fr 1fr 1fr;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 330px;
-    height: 330px;
+    width: 20%;
+    height: 50%;
     justify-content: space-between;
     text-align: left;
   }
@@ -47,14 +48,19 @@ const Title = styled.h1`
   @media (min-width: 1300px) {
     grid-area: 1 / 1 / 2 / 2;
     text-align: left;
+    /* align-self: start; */
+    margin: 0;
   }
 `;
 
 
 const CloseButtonWrapper = styled.button`
-  height: 3em;
-  width: 3em;
+  height: 2em;
+  width: 2em;
   z-index: 2;
+  border: none;
+  cursor: pointer;
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,6 +73,8 @@ const CloseButtonWrapper = styled.button`
     position: initial;
     bottom: initial;
     grid-area: 1 / 3 / 2 / 4;
+    align-self: initial;
+    justify-self: end;
   }
 `;
 
@@ -74,6 +82,7 @@ const RulesSVGWrapper = styled.div`
   grid-area: 2 / 1 / 3 / 4;
 
   @media (min-width: 1300px) {
+    /* align-self: end; */
   }
 `;
 

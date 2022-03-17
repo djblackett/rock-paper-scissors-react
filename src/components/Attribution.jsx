@@ -7,9 +7,10 @@ function Attribution() {
         target="_blank"
         rel="noreferrer"
       >
-        Frontend Mentorm
+        {" "}
+        Frontend Mentor
       </a>
-      . Coded by <a href="#">David Andrea</a>.
+      {". "}Coded by <a href="#">David Andrea</a>"{"."}
     </div>
   );
 }

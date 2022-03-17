@@ -5,7 +5,6 @@ import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 import ChoiceContainer from "./components/ChoiceContainer";
 import GameResults from "./components/GameResults";
-import Delayed from "./components/Delayed";
 import Attribution from './components/Attribution';
 
 export const AppContext = React.createContext(true);
@@ -32,7 +31,7 @@ const RulesButton = styled.button`
   color: white;
   letter-spacing: 0.1em;
   text-align: center;
-  transition: all 0.5s ease-in;
+  /* transition: all 0.5s ease-in; */
   justify-self: center;
 
   @media (min-width: 1300px) {
@@ -73,27 +72,27 @@ function App() {
       {/* Game logo and scorebox  */}
       <Header
         className="App-header"
-        style={{ opacity: fadeIn ? 1 : 0 }}
+        // style={{ opacity: fadeIn ? 1 : 0 }}
       ></Header>
 
       {/* Player makes a choice here */}
       {!isChoiceMade && (
-        <Delayed>
+        <>
           <ChoiceContainer />
           <RulesButton
             onClick={toggleFunction}
-            style={{ opacity: fadeIn ? 1 : 0 }}
+            // style={{ opacity: fadeIn ? 1 : 0 }}
           >
             RULES
           </RulesButton>
-        </Delayed>
+        </>
       )}
 
       {/* This is a modal box and overlay for the rules of the game.  */}
       <Overlay
         style={{
           visibility: isVisible ? "visible" : "hidden",
-          opacity: isVisible ? 1 : 0,
+          // opacity: isVisible ? 1 : 0,
         }}
       />
       <Rules />
@@ -104,9 +103,9 @@ function App() {
           <GameResults winner={winner} resetWinner={resetWinner} />
         </>
       )}
-
+      <Attribution />
       {/* Standard attribution for Front End Mentor projects */}
-       
+      
       </div>
   );
 }

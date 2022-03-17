@@ -86,11 +86,11 @@ function Winner(props) {
 
   return (
     <WinnerContainer
-      style={{
-        ...springProps,
-        display: props.winnerChosen ? "flex" : "none",
-        // opacity: props.winnerChosen ? 1 : 0,
-      }}
+    // style={{
+    //   ...springProps,
+    //   display: props.winnerChosen ? "flex" : "none",
+    //   // opacity: props.winnerChosen ? 1 : 0,
+    // }}
     >
       <WinnerTitle>{whoWon()}</WinnerTitle>
       <PlayAgain onClick={handleClick}>PLAY AGAIN</PlayAgain>
