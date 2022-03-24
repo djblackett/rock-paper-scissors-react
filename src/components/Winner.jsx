@@ -13,7 +13,7 @@ const WinnerContainer = styled(animated.div)`
   justify-content: center;
   margin: 0 1.5em;
   height: 150px;
-  transition: all 0.5s ease-in;
+  transition: all 0.5s;
   min-width: 20ch;
   max-width: 40%;
   z-index: 15;
@@ -45,8 +45,15 @@ const PlayAgain = styled.button`
   font-size: 12px;
   min-width: 20ch;
   font-weight: 700;
-  :hover {
+  transition: all 0.3s;
+
+  &:hover {
     color: orange;
+    transform: scale(1.3);
+  }
+
+  &:focus {
+    transform: scale(1.3);
   }
 `;
 

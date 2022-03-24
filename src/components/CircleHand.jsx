@@ -3,11 +3,12 @@ import { animated, useSpring } from "react-spring";
 import styled from "styled-components";
 import { AppContext } from "../App";
 
-const OuterCircle = styled.div`
+const OuterCircle = styled.button`
   height: 150px;
   width: 150px;
   max-width: 225px;
   max-height: 225px;
+  border: none;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -15,6 +16,15 @@ const OuterCircle = styled.div`
   position: relative;
   /* z-index: 5; */
   transform: translateY(-5px);
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &:focus {
+    transform: scale(1.2);
+  }
 `;
 
 const InnerCircle = styled.div`

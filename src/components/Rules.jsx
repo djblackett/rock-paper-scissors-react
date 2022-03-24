@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { useContext } from "react";
 import { AppContext } from "../App";
 
-
-// I recommend keeping the SVG definitions folded  
+// I recommend keeping the SVG definitions folded
 
 const RulesContainer = styled.section`
   position: absolute;
@@ -30,8 +29,8 @@ const RulesContainer = styled.section`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 330px;
-    height: 330px;
+    width: 500px;
+    height: 400px;
     justify-content: space-between;
     text-align: left;
   }
@@ -50,8 +49,9 @@ const Title = styled.h1`
   }
 `;
 
-
-const CloseButtonWrapper = styled.div`
+const CloseButtonWrapper = styled.div.attrs({
+  tabIndex: 1,
+})`
   height: 3em;
   width: 3em;
   z-index: 2;
@@ -61,11 +61,23 @@ const CloseButtonWrapper = styled.div`
   position: absolute;
   bottom: 2em;
   grid-area: 3 / 2 / 4 / 3;
+  transition: all 0.3s;
+
+  &:focus {
+    transform: scale(1.2);
+    border: 3px dotted black;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+    border: 3px dotted black;
+  }
 
   @media (min-width: 1300px) {
     position: initial;
     bottom: initial;
     grid-area: 1 / 3 / 2 / 4;
+    justify-self: end;
   }
 `;
 
@@ -73,6 +85,7 @@ const RulesSVGWrapper = styled.div`
   grid-area: 2 / 1 / 3 / 4;
 
   @media (min-width: 1300px) {
+    margin-top: 6rem;
   }
 `;
 
@@ -236,6 +249,11 @@ const CloseIcon = (
 function Rules() {
   const rules = useContext(AppContext);
 
+  function toggleOnEnter(e) {
+    if (e.key === "Enter") {
+      rules.toggleFunction();
+    }
+  }
   return (
     <RulesContainer
       style={{
@@ -243,9 +261,12 @@ function Rules() {
         opacity: rules.isVisible ? 1 : 0,
       }}
     >
-      
       <Title>RULES</Title>
-      <CloseButtonWrapper onClick={rules.toggleFunction}>
+      <CloseButtonWrapper
+        onClick={rules.toggleFunction}
+        tabindex="0"
+        onKeyDown={toggleOnEnter}
+      >
         {CloseIcon}
       </CloseButtonWrapper>
       <RulesSVGWrapper>{RulesSVG}</RulesSVGWrapper>

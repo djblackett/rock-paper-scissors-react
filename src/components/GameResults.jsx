@@ -61,12 +61,43 @@ const PlayerWrapper = styled.div`
 `;
 
 const WinnerGradient = styled(animated.div)`
-  background-image: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
-  height: 500px;
-  width: 500px;
+  /* background-image: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%)); */
+  /* display: initial; */
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b7deed+0,71ceef+50,21b4e2+51,b7deed+100;Shape+1+Style */
+  background: rgb(183, 222, 237); /* Old browsers */
+  background: -moz-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(183, 222, 237, 1) 0%,
+    rgba(113, 206, 239, 1) 50%,
+    rgba(33, 180, 226, 1) 51%,
+    rgba(183, 222, 237, 1) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(183, 222, 237, 1) 0%,
+    rgba(113, 206, 239, 1) 50%,
+    rgba(33, 180, 226, 1) 51%,
+    rgba(183, 222, 237, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(183, 222, 237, 1) 0%,
+    rgba(113, 206, 239, 1) 50%,
+    rgba(33, 180, 226, 1) 51%,
+    rgba(183, 222, 237, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#b7deed',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  height: 450px;
+  width: 450px;
+  /* height: 0;
+  width: 0; */
   border-radius: 50%;
   position: absolute;
-  transition: all 0.5s ease-in;
+  transition: all 2s;
   z-index: -50 !important;
   grid-area: 1 / 1 / 2 / 2;
 
@@ -74,6 +105,32 @@ const WinnerGradient = styled(animated.div)`
     grid-area: 2 / 1 / 3 / 2;
   }
 `;
+
+// const WinnerGradient = styled(animated.img)`
+//   height: 450px;
+//   width: 450px;
+//   /* height: 0;
+//   width: 0; */
+//   border-radius: 50%;
+//   position: absolute;
+
+//   z-index: -50 !important;
+//   grid-area: 1 / 1 / 2 / 2;
+//   /* opacity: 0.5; */
+//   -webkit-transition: opacity 1s ease-in-out;
+//   -moz-transition: opacity 1s ease-in-out;
+//   -o-transition: opacity 1s ease-in-out;
+//   transition: opacity 1s ease-in-out;
+
+//   @media (min-width: 1300px) {
+//     grid-area: 2 / 1 / 3 / 2;
+//   }
+// `;
+
+WinnerGradient.defaultProps = {
+  src:
+    process.env.PUBLIC_URL + "/images/milad-fakurian-bexwsdM5BCw-unsplash.jpg",
+};
 
 const HousePlaceholder = styled.div`
   height: 120px;
@@ -123,14 +180,16 @@ function GameResults() {
 
   return (
     <GameResultsContainer style={props}>
-      <PlayerWrapper>
+      <PlayerWrapper style={{ zIndex: winner === "player" ? -10 : 0 }}>
         <Text>YOU PICKED</Text>
 
         <Delayed waitBeforeShow={4200}>
           <WinnerGradient
             style={{
-              opacity: winner === "player" ? 1 : 0,
+              // props,
+              // opacity: winner === "player" ? 1 : 0,
               display: winner === "player" ? "initial" : "none",
+              // backgroundSize: winner === "player" ? "100%" : "0",
             }}
           />
         </Delayed>
@@ -145,7 +204,7 @@ function GameResults() {
         />
       </Delayed>
 
-      <PlayerWrapper>
+      <PlayerWrapper style={{ zIndex: winner === "house" ? -10 : 0 }}>
         <Text>THE HOUSE PICKED</Text>
         <HousePlaceholderTransparentWrapper>
           <HousePlaceholder />
@@ -156,9 +215,10 @@ function GameResults() {
         <Delayed waitBeforeShow={4200}>
           <WinnerGradient
             style={{
-              opacity: winner === "house" ? 1 : 0,
+              // props,
+              // opacity: winner === "house" ? 1 : 0,
               display: winner === "house" ? "initial" : "none",
-              zIndex: -50,
+              // backgroundSize: winner === "house" ? "450px" : "2px",
             }}
           />
         </Delayed>

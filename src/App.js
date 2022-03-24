@@ -24,7 +24,7 @@ const Overlay = styled.div`
 const RulesButton = styled.button`
   align-self: center;
   margin-bottom: 3em;
-
+  margin-top: 2rem;
   padding: 0.3em 1.9em;
   background-color: transparent;
   border: 2px solid white;
@@ -34,6 +34,15 @@ const RulesButton = styled.button`
   text-align: center;
   transition: all 0.5s ease-in;
   justify-self: center;
+
+  &:hover {
+    /* background-color: magenta; */
+    transform: scale(1.3);
+  }
+
+  &:focus {
+    transform: scale(1.3);
+  }
 
   @media (min-width: 1300px) {
     align-self: flex-end;
@@ -106,7 +115,7 @@ function App() {
       )}
 
       {/* Standard attribution for Front End Mentor projects */}
-       
+       {/* <Attribution /> */}
       </div>
   );
 }
