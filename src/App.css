@@ -61,6 +61,10 @@ body {
   @media (min-width: 1300px) {
     grid-template: 30% 70% / 1fr;
   }
+
+  @media (max-height: 650px) {
+    
+  }
 }
 
 .attribution {

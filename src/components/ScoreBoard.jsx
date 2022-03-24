@@ -23,7 +23,7 @@ const ScoreLabel = styled.p`
   letter-spacing: 0.1em;
   color: hsl(229, 25%, 31%);
   font-weight: 700;
-  margin-bottom: -0.8em;
+  margin-bottom: -0.5em;
 `;
 
 const ScoreNumber = styled.p`
