@@ -8,7 +8,8 @@ const HeaderContainer = styled.div`
   margin-top: 0.5em;
   /* margin-bottom: 1em; */
   height: 90px;
-  width: 70%;
+  width: 80vw;
+  /* min-width: 70%; */
   max-width: 325px;
   display: flex;
   flex-direction: row;
@@ -16,9 +17,9 @@ const HeaderContainer = styled.div`
   align-items: center;
   background-color: transparent;
   border: 3px solid hsl(217, 16%, 45%);
-  padding: 1em;
+  padding: 1rem;
   border-radius: 10px;
-  transition: all 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
 
   @media (min-width: 400px) {
     margin-top: 3em;
@@ -27,7 +28,7 @@ const HeaderContainer = styled.div`
   @media (min-width: 1300px) {
     width: 50%;
     max-width: 50%;
-    width: 80%;
+    /* width: 80%; */
   }
 `;
 
