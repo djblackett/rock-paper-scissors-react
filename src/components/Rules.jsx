@@ -21,7 +21,7 @@ const RulesContainer = styled.section`
   align-items: center;
   align-content: center;
   justify-items: center;
-  z-index: 5;
+  z-index: 15;
   transition: all 0.5s ease-out;
   text-align: center;
 

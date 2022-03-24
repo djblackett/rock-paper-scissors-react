@@ -67,10 +67,16 @@ const BackgroundCircle = styled(animated.div)`
 function CircleHand(props) {
   const { toggleIsChoiceMade, isChoiceMade } = useContext(AppContext);
   const springProps = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
+
   const handleClick = () => {
     if (!isChoiceMade) {
       toggleIsChoiceMade();
       props.action();
+
+      window.setInterval(function () {
+        var elem = document.getElementById("wc");
+        elem.scrollTop = elem.scrollHeight;
+      }, 5000);
     }
   };
 

@@ -5,10 +5,10 @@ import { AppContext } from "../App";
 
 const HeaderContainer = styled.div`
   box-sizing: border-box;
-  margin-top: 3em;
+  margin-top: 0.5em;
   /* margin-bottom: 1em; */
   height: 90px;
-  width: 80%;
+  width: 70%;
   max-width: 325px;
   display: flex;
   flex-direction: row;
@@ -20,9 +20,14 @@ const HeaderContainer = styled.div`
   border-radius: 10px;
   transition: all 0.5s ease-in;
 
+  @media (min-width: 400px) {
+    margin-top: 3em;
+  }
+
   @media (min-width: 1300px) {
     width: 50%;
     max-width: 50%;
+    width: 80%;
   }
 `;
 

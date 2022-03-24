@@ -19,6 +19,11 @@ const GameResultsContainer = styled(animated.div)`
   align-self: flex-start;
   justify-self: center;
   z-index: 10;
+  margin-top: -2rem;
+
+  @media (min-width: 400px) {
+    margin-top: initial;
+  }
 
   @media (min-width: 1300px) {
     transform: scale(1);

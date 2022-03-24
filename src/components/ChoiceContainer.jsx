@@ -6,7 +6,7 @@ import Scissors from "./Scissors";
 import { animated, useSpring } from "react-spring";
 
 const Container = styled(animated.div)`
-  margin-top: 3em;
+  margin-top: 1em;
   max-width: 500px;
   max-height: 500px;
   display: grid;
@@ -17,7 +17,12 @@ const Container = styled(animated.div)`
   align-items: center;
   justify-items: center;
   transition: all 0.3s ease-in;
-  transform: scale(0.75);
+  transform: scale(0.65);
+
+  @media (min-width: 400px) {
+    transform: scale(0.75);
+    margin-top: 3em;
+  }
 
   @media (min-width: 1300px) {
     transform: scale(1);

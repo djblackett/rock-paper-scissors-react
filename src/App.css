@@ -6,7 +6,7 @@
 }
 
 html {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -19,7 +19,7 @@ body {
   bottom: 0;
   box-sizing: border-box;
   min-height: 100%;
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   margin: 0;
   padding: 0;
@@ -36,6 +36,7 @@ body {
 .App {
   box-sizing: border-box;
   height: 100%;
+  min-height: 100vh;
   /* max-height: 900px; */
   width: 100%;
   margin: 0;
@@ -46,8 +47,9 @@ body {
   border: none;
   outline: none;
   display: grid;
+  position: relative;
 
-  grid-template: 20% 70% 10% / 1fr;
+  grid-template: 15% 60% 10% / 1fr;
   justify-items: center;
   align-items: flex-start;
   text-align: center;
@@ -62,10 +64,14 @@ body {
 }
 
 .attribution {
+  display: block;
   font-size: 11px;
   text-align: center;
   color: white;
+  position: absolute;
+  bottom: 1%;
+  /* top: 99%; */
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: hsl(81, 100%, 64%);
 }

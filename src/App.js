@@ -7,6 +7,7 @@ import ChoiceContainer from "./components/ChoiceContainer";
 import GameResults from "./components/GameResults";
 import Delayed from "./components/Delayed";
 import Attribution from './components/Attribution';
+import RulesButton from './components/RulesButton'
 
 export const AppContext = React.createContext(true);
 
@@ -21,36 +22,7 @@ const Overlay = styled.div`
   transition: all 0.5s ease-out 0.5s;
 `;
 
-const RulesButton = styled.button`
-  align-self: center;
-  margin-bottom: 3em;
-  margin-top: 2rem;
-  padding: 0.3em 1.9em;
-  background-color: transparent;
-  border: 2px solid white;
-  border-radius: 5px;
-  color: white;
-  letter-spacing: 0.1em;
-  text-align: center;
-  transition: all 0.5s ease-in;
-  justify-self: center;
 
-  &:hover {
-    /* background-color: magenta; */
-    transform: scale(1.3);
-  }
-
-  &:focus {
-    transform: scale(1.3);
-  }
-
-  @media (min-width: 1300px) {
-    align-self: flex-end;
-    justify-self: end;
-    margin-right: 3em;
-    margin-bottom: 1em;
-  }
-`;
 
 // Uses isChoiceMade to switch between the 2 scenes of the game. When false, the ChoiceContainer is rendered so the player can make a choice.
 // When a hand is selected, it switches to true, causing the GameResults to be rendered instead.
@@ -83,21 +55,15 @@ function App() {
       <Header
         className="App-header"
         style={{ opacity: fadeIn ? 1 : 0 }}
-      ></Header>
+      />
 
       {/* Player makes a choice here */}
       {!isChoiceMade && (
         <Delayed>
           <ChoiceContainer />
-          <RulesButton
-            onClick={toggleFunction}
-            style={{ opacity: fadeIn ? 1 : 0 }}
-          >
-            RULES
-          </RulesButton>
         </Delayed>
       )}
-
+      
       {/* This is a modal box and overlay for the rules of the game.  */}
       <Overlay
         style={{
@@ -115,7 +81,8 @@ function App() {
       )}
 
       {/* Standard attribution for Front End Mentor projects */}
-       {/* <Attribution /> */}
+      <RulesButton />
+      <Attribution />
       </div>
   );
 }
