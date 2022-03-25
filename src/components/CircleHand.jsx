@@ -10,6 +10,7 @@ const OuterCircle = styled.button`
   max-height: 225px;
   border: none;
   border-radius: 50%;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,6 +33,7 @@ const InnerCircle = styled.div`
   width: 80%;
   border-radius: 50%;
   background-color: lightgrey;
+  padding: 0;
   /* z-index: 10; */
 `;
 const Center = styled.div`
@@ -40,6 +42,7 @@ const Center = styled.div`
   background-color: white;
   border-radius: 50%;
   transform: translate(0, 5px);
+  padding: 0;
   /* z-index: 15; */
   display: flex;
   justify-content: center;
@@ -56,6 +59,7 @@ const BackgroundCircle = styled(animated.div)`
   top: 5px;
   /* z-index: 3; */
   transition: all 0.3s ease-in;
+  padding: 0;
 
   @media (min-width: 1300px) {
     /* margin-left: 2em;
@@ -73,10 +77,10 @@ function CircleHand(props) {
       toggleIsChoiceMade();
       props.action();
 
-      window.setInterval(function () {
-        var elem = document.getElementById("wc");
-        elem.scrollTop = elem.scrollHeight;
-      }, 5000);
+      // window.setInterval(function () {
+      //   var elem = document.getElementById("wc");
+      //   elem.scrollTop = elem.scrollHeight;
+      // }, 5000);
     }
   };
 
