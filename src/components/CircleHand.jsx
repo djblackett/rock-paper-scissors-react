@@ -15,35 +15,36 @@ const OuterCircle = styled.button`
   justify-content: center;
   align-items: center;
   position: relative;
-  /* z-index: 5; */
+  aspect-ratio: 1;
   transform: translateY(-5px);
   transition: all 0.3s;
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.2) translateY(-5px);
   }
 
   &:focus {
-    transform: scale(1.2);
+    transform: scale(1.2) translateY(-5px);
   }
 `;
 
 const InnerCircle = styled.div`
   height: 80%;
   width: 80%;
+  aspect-ratio: 1;
   border-radius: 50%;
   background-color: lightgrey;
   padding: 0;
-  /* z-index: 10; */
 `;
+
 const Center = styled.div`
   height: 100%;
   width: 100%;
+  aspect-ratio: 1;
   background-color: white;
   border-radius: 50%;
   transform: translate(0, 5px);
   padding: 0;
-  /* z-index: 15; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,7 +58,6 @@ const BackgroundCircle = styled(animated.div)`
   background-color: rgba(7, 90, 213, 0.3);
   border-radius: 50%;
   top: 5px;
-  /* z-index: 3; */
   transition: all 0.3s ease-in;
   padding: 0;
 
@@ -76,11 +76,6 @@ function CircleHand(props) {
     if (!isChoiceMade) {
       toggleIsChoiceMade();
       props.action();
-
-      // window.setInterval(function () {
-      //   var elem = document.getElementById("wc");
-      //   elem.scrollTop = elem.scrollHeight;
-      // }, 5000);
     }
   };
 
