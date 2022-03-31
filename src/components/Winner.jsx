@@ -13,7 +13,7 @@ const WinnerContainer = styled(animated.div)`
   justify-content: center;
   margin: 0 1.5em;
   height: 150px;
-  transition: all 0.2s;
+  transition: all 0.3s;
   min-width: 20ch;
   max-width: 40%;
   z-index: 15;

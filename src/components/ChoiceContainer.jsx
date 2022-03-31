@@ -25,7 +25,8 @@ const Container = styled(animated.div)`
   }
 
   @media (min-width: 1300px) {
-    transform: scale(1);
+    transform: scale(1.2);
+    margin-top: 7rem;
   }
 `;
 
