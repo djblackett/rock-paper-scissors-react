@@ -188,7 +188,7 @@ function GameResults() {
       <PlayerWrapper style={{ zIndex: winner === "player" ? -10 : 0 }}>
         <Text>YOU PICKED</Text>
 
-        <Delayed waitBeforeShow={4200}>
+        <Delayed waitBeforeShow={1500}>
           <WinnerGradient
             style={{
               // props,
@@ -201,7 +201,7 @@ function GameResults() {
         <Player />
       </PlayerWrapper>
 
-      <Delayed waitBeforeShow={4000}>
+      <Delayed waitBeforeShow={1000}>
         <Winner
           winner={winner}
           winnerChosen={winner !== null}
@@ -217,7 +217,7 @@ function GameResults() {
 
         {/* This is the problem area - WinnerGradient renders properly when the player wins, but not when the house wins.
         It seems to ignore its z-index of -50 */}
-        <Delayed waitBeforeShow={4200}>
+        <Delayed waitBeforeShow={1500}>
           <WinnerGradient
             style={{
               // props,

@@ -10,19 +10,19 @@ function House() {
 
   if (houseChoice === "rock") {
     return (
-      <Delayed waitBeforeShow={2000}>
+      <Delayed waitBeforeShow={1000}>
         <Rock style={{ transform: "scale(1.5)" }} />
       </Delayed>
     );
   } else if (houseChoice === "paper") {
     return (
-      <Delayed waitBeforeShow={2000}>
+      <Delayed waitBeforeShow={1000}>
         <Paper style={{ transform: "scale(1.5)" }} />
       </Delayed>
     );
   } else {
     return (
-      <Delayed waitBeforeShow={2000}>
+      <Delayed waitBeforeShow={1000}>
         <Scissors style={{ transform: "scale(1.5)" }} />
       </Delayed>
     );

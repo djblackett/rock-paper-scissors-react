@@ -58,7 +58,7 @@ const BackgroundCircle = styled(animated.div)`
   background-color: rgba(7, 90, 213, 0.3);
   border-radius: 50%;
   top: 5px;
-  transition: all 0.1s ease-in;
+  transition: all 0.2s;
   padding: 0;
 
   @media (min-width: 1300px) {
