@@ -14,7 +14,7 @@ const GameResultsContainer = styled(animated.div)`
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  transition: all 0.3s ease-in;
+  transition: all 0.1s ease-in;
   transform: scale(0.6);
   align-self: flex-start;
   justify-self: center;

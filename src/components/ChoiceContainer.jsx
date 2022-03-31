@@ -16,7 +16,7 @@ const Container = styled(animated.div)`
   background-position: center;
   align-items: center;
   justify-items: center;
-  transition: all 0.3s ease-in;
+  transition: all 0.01s ease-in;
   transform: scale(0.65);
 
   @media (min-width: 400px) {

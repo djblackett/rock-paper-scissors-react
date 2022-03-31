@@ -17,7 +17,7 @@ const OuterCircle = styled.button`
   position: relative;
   aspect-ratio: 1;
   transform: translateY(-5px);
-  transition: all 0.3s;
+  transition: all 0.1s;
 
   &:hover {
     transform: scale(1.2) translateY(-5px);
@@ -58,7 +58,7 @@ const BackgroundCircle = styled(animated.div)`
   background-color: rgba(7, 90, 213, 0.3);
   border-radius: 50%;
   top: 5px;
-  transition: all 0.3s ease-in;
+  transition: all 0.1s ease-in;
   padding: 0;
 
   @media (min-width: 1300px) {

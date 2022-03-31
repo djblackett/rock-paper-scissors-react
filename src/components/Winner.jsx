@@ -13,7 +13,7 @@ const WinnerContainer = styled(animated.div)`
   justify-content: center;
   margin: 0 1.5em;
   height: 150px;
-  transition: all 0.5s;
+  transition: all 0.2s;
   min-width: 20ch;
   max-width: 40%;
   z-index: 15;
@@ -102,7 +102,6 @@ function Winner(props) {
     >
       <WinnerTitle>{whoWon()}</WinnerTitle>
       <PlayAgain onClick={handleClick}>PLAY AGAIN</PlayAgain>
-     
     </WinnerContainer>
   );
 }
