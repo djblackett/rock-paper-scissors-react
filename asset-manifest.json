@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/rock-paper-scissors-react/static/css/main.b4ef309a.css",
-    "main.js": "/rock-paper-scissors-react/static/js/main.b6690266.js",
+    "main.css": "/rock-paper-scissors-react/static/css/main.cc06f95f.css",
+    "main.js": "/rock-paper-scissors-react/static/js/main.1fc5c859.js",
     "static/js/787.c8ffd4a8.chunk.js": "/rock-paper-scissors-react/static/js/787.c8ffd4a8.chunk.js",
     "index.html": "/rock-paper-scissors-react/index.html",
-    "main.b4ef309a.css.map": "/rock-paper-scissors-react/static/css/main.b4ef309a.css.map",
-    "main.b6690266.js.map": "/rock-paper-scissors-react/static/js/main.b6690266.js.map",
+    "main.cc06f95f.css.map": "/rock-paper-scissors-react/static/css/main.cc06f95f.css.map",
+    "main.1fc5c859.js.map": "/rock-paper-scissors-react/static/js/main.1fc5c859.js.map",
     "787.c8ffd4a8.chunk.js.map": "/rock-paper-scissors-react/static/js/787.c8ffd4a8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b4ef309a.css",
-    "static/js/main.b6690266.js"
+    "static/css/main.cc06f95f.css",
+    "static/js/main.1fc5c859.js"
   ]
 }
